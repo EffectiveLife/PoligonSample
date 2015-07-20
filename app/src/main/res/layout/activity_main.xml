@@ -1,34 +1,94 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.v4.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/drawerLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <Button
-        android:id="@+id/bt_search"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentRight="true"
-        android:background="@drawable/search"
-        android:layout_marginTop="20dp"
-        android:layout_marginRight="20dp"/>
-
-    <EditText
-        android:id="@+id/et_search"
+    <!--<FrameLayout
+        android:id="@+id/rootLayout"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_toLeftOf="@id/bt_search"
-        android:layout_marginRight="10dp"
-        android:layout_marginLeft="10dp"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="20dp" />
+        android:layout_height="match_parent">
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/fabBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|right"
+            android:layout_marginRight="@dimen/codelab_fab_margin_rignt"
+            android:layout_marginBottom="@dimen/codelab_fab_margin_bottom"
+            android:src="@drawable/ic_plus"
+            app:fabSize="normal"
+            app:borderWidth="0dp"
+            />
+    </FrameLayout>-->
 
-    <TextView
-        android:id="@+id/tv_result"
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_below="@id/et_search"
-        android:padding="10dp"
-        android:layout_marginTop="20dp" />
+        android:layout_height="match_parent">
 
-</RelativeLayout>
+        <!--<Button
+            android:id="@+id/bt_search"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentRight="true"
+            android:background="@drawable/search"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="20dp"/>
+
+        <EditText
+            android:id="@+id/et_search"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_toLeftOf="@id/bt_search"
+            android:layout_marginRight="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="20dp" />
+
+        <TextView
+            android:id="@+id/tv_result"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/et_search"
+            android:padding="10dp"
+            android:layout_marginTop="20dp" />-->
+
+        <RelativeLayout
+            android:id="@+id/rlSearch"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true">
+            <ImageButton
+                android:id="@+id/bt_search"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentRight="true"
+                android:background="@drawable/search_btn"
+                android:layout_marginTop="6dp"
+                android:layout_marginRight="6dp"/>
+
+            <EditText
+                android:id="@+id/et_search"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_toLeftOf="@id/bt_search"
+                android:layout_marginRight="6dp"
+                android:layout_marginLeft="6dp"
+                android:layout_alignParentTop="true"
+                android:layout_marginTop="6dp" />
+        </RelativeLayout>
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/rvArea"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/rlSearch"
+            android:scrollbars="none"
+            />
+
+    </RelativeLayout>
+
+</android.support.v4.widget.DrawerLayout>

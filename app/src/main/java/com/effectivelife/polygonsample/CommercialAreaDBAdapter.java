@@ -59,25 +59,25 @@ public class CommercialAreaDBAdapter {
         return db.insert(TABLE_NAME, null, values);
     }
 
-    public Cursor getAllPoints() {
+    /*public Cursor getAllPoints() {
         return db.query(TABLE_NAME, new String[]{AREA_KEY, AREA_NAME, AREA_POINT}, null, null, null, null, null);
+    }*/
+
+    public Cursor getAllPoints() {
+        db = dbHelper.getReadableDatabase();
+
+        StringBuilder query = new StringBuilder("SELECT ").append(AREA_NAME).append(" , ").append(AREA_POINT).append(" FROM ").append(TABLE_NAME).append(";");
+        return db.rawQuery(query.toString(), null);
     }
 
     public Cursor query(String selection) {
         db = dbHelper.getReadableDatabase();
 
-        StringBuilder query = new StringBuilder("SELECT ").append(AREA_POINT).append(" FROM ").append(TABLE_NAME)
+        StringBuilder query = new StringBuilder("SELECT ").append(AREA_NAME).append(" , ").append(AREA_POINT).append(" FROM ").append(TABLE_NAME)
                 .append(" WHERE ").append(AREA_NAME).append(" LIKE '%").append(selection).append("%';");
 
 //        String[] args = new String[] {selection+"*"};
-        Cursor cursor = db.rawQuery(query.toString(), null);
-        if(cursor == null) {
-            return null;
-        } else if(!cursor.moveToFirst()) {
-            cursor.close();
-            return null;
-        }
-        return cursor;
+        return db.rawQuery(query.toString(), null);
     }
     /*private Cursor query(String selection, String[] selectionArgs, String[] colums) {
         SQLiteQueryBuilder builder = new SQLiteQueryBuilder();

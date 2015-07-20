@@ -41,7 +41,7 @@ public class MapActivity extends Activity implements OnMapReadyCallback {
     private ArrayList<ArrayList<String>> tmCoords = new ArrayList<>();
     private List<LatLng> wgs84Coords = new ArrayList<LatLng>();
 
-    private static final LatLng DEFAULT_LATLNG = new LatLng( 37.56, 126.97);
+    private static final LatLng DEFAULT_LATLNG = new LatLng(37.56, 126.97);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
